@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Getter
 @AllArgsConstructor
@@ -20,4 +21,7 @@ public class Task {
 
     @Column(name = "description")
     private String content;
+
+/*    @Column(name = "tryList")
+    private ArrayList<String> trylist;*/
 }
