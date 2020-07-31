@@ -5,7 +5,7 @@ buildscript {
 	repositories {
 		mavenCentral()
 		maven {
-			url 'https://oss.sonatype.org/content/repositories/snapshots/'
+			url 'https://repo.spring.io/milestone'
 	}}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -14,7 +14,7 @@ buildscript {
 plugins {   id 'eclipse'
 			id 'org.springframework.boot' version '2.3.1.RELEASE'
 			id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-			id 'war'
+			//id 'war'
 			id 'java'
 		}
 
@@ -38,7 +38,7 @@ dependencies {
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 
-	providedRuntime ("org.springframework.boot:spring-boot-starter-tomcat")
+	compile ("org.springframework.boot:spring-boot-starter-tomcat")
 }
 
 test {
