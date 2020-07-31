@@ -8,7 +8,7 @@ buildscript {
 			url 'https://repo.spring.io/milestone'
 	}}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		
 	}
 }
 plugins {   id 'eclipse'
@@ -33,12 +33,10 @@ dependencies {
 	compile ('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile ('mysql:mysql-connector-java:8.0.15')
 	annotationProcessor 'org.projectlombok:lombok:1.18.12'
-
-
-
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-
 	compile ("org.springframework.boot:spring-boot-starter-tomcat")
+
+
 }
 
 test {
