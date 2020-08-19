@@ -10,7 +10,7 @@ import java.util.ArrayList;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name="tasks")
+@Entity(name = "tasks")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,6 +22,5 @@ public class Task {
     @Column(name = "description")
     private String content;
 
-/*    @Column(name = "tryList")
-    private ArrayList<String> trylist;*/
+
 }

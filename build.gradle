@@ -1,22 +1,24 @@
 buildscript {
-	ext {
-		springBootVersion = '2.3.1.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-		maven {
-			url 'https://repo.spring.io/milestone'
-	}}
-	dependencies {
-		
-	}
+    ext {
+        springBootVersion = '2.3.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://repo.spring.io/milestone'
+        }
+    }
+    dependencies {
+
+    }
 }
-plugins {   id 'eclipse'
-			id 'org.springframework.boot' version '2.3.1.RELEASE'
-			id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-			//id 'war'
-			id 'java'
-		}
+plugins {
+    id 'eclipse'
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'war'
+    id 'java'
+}
 
 
 group = 'com.crud'
@@ -24,22 +26,22 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	compile ('org.springframework.boot:spring-boot-starter-web')
-	compile ('org.projectlombok:lombok:1.18.12')
-	compile ('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile ('mysql:mysql-connector-java:8.0.15')
-	annotationProcessor 'org.projectlombok:lombok:1.18.12'
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	compile ("org.springframework.boot:spring-boot-starter-tomcat")
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.projectlombok:lombok:1.18.12')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('mysql:mysql-connector-java:8.0.15')
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile("org.springframework.boot:spring-boot-starter-tomcat")
 
 
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 
