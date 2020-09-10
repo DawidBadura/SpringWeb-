@@ -9,7 +9,7 @@ import lombok.Setter;
 
 import java.util.List;
 
-@AllArgsConstructor
+/*@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -21,4 +21,4 @@ public class BadgesDto {
 
     @JsonProperty("votes")
     private int votes;
-}
+}*/

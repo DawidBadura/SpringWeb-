@@ -9,8 +9,6 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AttachmentsByTypeDto {
 

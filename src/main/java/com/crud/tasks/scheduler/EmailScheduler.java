@@ -5,14 +5,17 @@ import com.crud.tasks.domain.Mail;
 import com.crud.tasks.repository.TaskRepository;
 import com.crud.tasks.service.SimpleEmailService;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 @Component
 @Getter
+@NoArgsConstructor
 public class EmailScheduler {
 
     private static final String SUBJECT = "tasks: Once a day email";
@@ -25,7 +28,12 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    @Scheduled(cron = "0 0 10 * * *")
+    private AtomicInteger count = new AtomicInteger(0);
+    public int getInvocationTime(){
+        return this.count.get();
+    }
+
+    @Scheduled(fixedDelay = 1)//(cron = "0 0 10 * * *")
     public void sendInformationEmail(){
         long size = taskRepository.count();
         String mailMessage = "Currently in database you got: " + size + " task";
@@ -36,7 +44,7 @@ public class EmailScheduler {
                         mailMessage
                 )
         );
-
+        count.incrementAndGet();
     }
 
 }

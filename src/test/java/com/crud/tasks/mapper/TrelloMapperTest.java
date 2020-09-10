@@ -53,6 +53,8 @@ public class TrelloMapperTest {
 
         //Then
         assertEquals(trelloListDtoId,"1");
+        assertEquals(false, trelloMapper.mapToList(trelloListDto).get(0).isClosed());
+        assertEquals("sddsa", trelloMapper.mapToList(trelloListDto).get(0).getName());
         assertEquals(TrelloList.class, trelloMapper.mapToList(trelloListDto).get(0).getClass());
     }
 
