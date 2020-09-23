@@ -64,6 +64,9 @@ public class TrelloClient {
             LOGGER.error(e.getMessage(), e);
             return new CreatedTrelloCardDto();
         }
+/*
+        return restTemplate.postForObject(url, null, CreatedTrelloCardDto.class);
+*/
     }
 
 

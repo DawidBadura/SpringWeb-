@@ -25,7 +25,9 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    @Scheduled/*(fixedDelay = 2)*/(cron = "0 0 10 * * *")
+    @Scheduled
+            //(fixedDelay = 2)
+            (cron = "0 0 10 * * *")
     public void sendInformationEmail(){
         long size = taskRepository.count();
         String mailMessage = "Currently in database you got: " + size + " task";
