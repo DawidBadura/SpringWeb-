@@ -45,8 +45,8 @@ public class MailCreatorService {
         context.setVariable("application_functionality", functionality);
         context.setVariable("tasks_names", taskNames);
         context.setVariable("dont_show_tasks", taskNames.isEmpty());
-        //return templateEngine.process("mail/created-trello-card-mail", context);
-        return templateEngine.process("mail/scheduler-mail", context);
+        return templateEngine.process("mail/created-trello-card-mail", context);
+        //return templateEngine.process("mail/scheduler-mail", context);
 
     }
 }
