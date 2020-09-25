@@ -12,6 +12,9 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
 
+import javax.mail.internet.MimeMessage;
+
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -29,25 +32,19 @@ public class SimpleEmailServiceTest {
     public void shouldSendEmail() {
         //Given
         Mail mail = new Mail("test@test.com", "Test", "Test Message");
-
-        /*MimeMessagePreparator messagePreparator = mimeMessage -> {
+        MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
             messageHelper.setTo(mail.getMailTo());
             messageHelper.setSubject(mail.getSubject());
             messageHelper.setText(mail.getMessage());
-        };*/
-
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setTo(mail.getMailTo());
-        mailMessage.setSubject(mail.getSubject());
-        mailMessage.setText(mail.getMessage());
+        };
 
         //When
         simpleEmailService.send(mail);
+        javaMailSender.send(messagePreparator);
 
         //Then
-/*
-        verify(javaMailSender, times(1)).send(messagePreparator);
-*/
+        verify(javaMailSender, times(2)).send(any(MimeMessagePreparator.class));
+
     }
 }
